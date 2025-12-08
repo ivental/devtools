@@ -25,4 +25,7 @@ public boolean readyForSprint() - метод-ответ "готов ли сту�
 # Ссылка на урок
 https://mentee-power.xl.ru/learn/MCIneBj4KkyH-GIRCspFvA/tasks
 
+
+# Git локальный цикл
+
 # Правило веток: feature/DVT-X
