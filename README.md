@@ -41,3 +41,16 @@ Project → правый клик по корню → Git → Initialize Reposit
 Git Branches popup → New Branch → feature/DVT-3 → «Checkout». 
 Для проверки выполнить git branch --show-current (ожидаем feature/DVT-Х).
 
+# Чек поинты
+
+Remote настроен: git remote -v совпадает с тем, что указано в IDE.
+
+Master опубликован: ветка origin/master показывается в IDE и на GitHub.
+
+PR feature/DVT-3 смёржен: статус merged, ссылка/скрин приложены.
+
+Локальный master синхронизирован: git fetch --all --prune + git pull --ff-only origin master.
+
+Фича‑ветка опубликована: origin/feature/DVT-4 существует; база ветки = origin/master.
+
+PR оформлен: описание + чек‑лист + Evidence Pack; Checks отображаются или задекларированы ручные проверки.
