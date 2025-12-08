@@ -25,4 +25,19 @@ public boolean readyForSprint() - метод-ответ "готов ли сту�
 # Ссылка на урок
 https://mentee-power.xl.ru/learn/MCIneBj4KkyH-GIRCspFvA/tasks
 
+
+# Git локальный цикл
+Проверить интеграцию Git: IntelliJ IDEA → VCS → Enable Version Control Integration → Git. Settings Ctrl+Alt+S → Version Control → Git → указать путь к исполняемому файлу → Test.
+Настроить пользователя: в терминале выполнить 
+git config --global user.name "Имя Фамилия", 
+git config --global user.email "student@example.com". 
+Для проверки — git config --list | grep user..
+Инициализировать репозиторий и правило веток: 
+Project → правый клик по корню → Git → Initialize Repository.
+Добавить .gitignore. 
+
 # Правило веток: feature/DVT-X
+Создать ветку feature/DVT-Х: 
+Git Branches popup → New Branch → feature/DVT-3 → «Checkout». 
+Для проверки выполнить git branch --show-current (ожидаем feature/DVT-Х).
+
