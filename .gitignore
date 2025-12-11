@@ -7,6 +7,7 @@ build/
 .kotlin
 
 ### IntelliJ IDEA ###
+
 .ssh
 .idea/
 .idea/modules.xml
