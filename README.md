@@ -54,3 +54,9 @@ PR feature/DVT-3 смёржен: статус merged, ссылка/скрин п
 Фича‑ветка опубликована: origin/feature/DVT-4 существует; база ветки = origin/master.
 
 PR оформлен: описание + чек‑лист + Evidence Pack; Checks отображаются или задекларированы ручные проверки.
+
+
+# Чистый Git‑репозиторий
+
+Перед push: git status clean
+status clean вводить в терминале.
