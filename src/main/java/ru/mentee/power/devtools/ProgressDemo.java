@@ -1,7 +1,11 @@
 package ru.mentee.power.devtools;
 
-public class ProgressDemo {
-    public static void main(String[] args) {
+class ProgressDemo {
+
+    private ProgressDemo() {
+        throw new UnsupportedOperationException("Utility class");
+    }
+     static void main(String[] args) {
         MenteeProgress student = new MenteeProgress("Ilia", 2, 6);
         var progress = student;
 
