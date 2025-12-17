@@ -1,6 +1,8 @@
 plugins {
     id 'java'
     id 'application'
+    id 'checkstyle'
+    id 'jacoco'
 }
 
 group = 'ru.mentee.power'
@@ -18,7 +20,7 @@ java {
 }
 
 application {
-    mainClass = 'ru.mentee.power.ProgressDemo'
+    mainClass = 'ru.mentee.power.devtools.progress.ProgressTracker'
 }
 
 repositories {
@@ -32,6 +34,120 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
+checkstyle {
+    toolVersion = '10.17.0'
+    configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
+    showViolations = true
+    ignoreFailures = false
+}
+
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
+
+    jacoco {
+        enabled = true
+        excludes = ['sun.*', 'com.sun.*', 'jdk.*', 'java.*', 'javax.*']
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.14"
+}
+
+jacocoTestReport {
+    group = "verification"
+    description = "Generate JaCoCo coverage report"
+
+    dependsOn test
+    reports {
+        xml.required = true
+        html.required = true
+        csv.required = false
+    }
+
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    '**/ProgressDemo.class',
+                    '**/MenteeProgress.class',
+                    '**/*Test.class',
+                    '**/*Tests.class',
+                    'sun/**',
+                    'com/sun/**',
+                    'jdk/**',
+                    'java/**',
+                    'javax/**',
+                    'org/jcp/**'
+            ])
+        }))
+    }
+
+    doLast {
+        println "\n" + "=" * 60
+        println "JaCoCo REPORT GENERATED"
+        println "HTML Report: file://${buildDir}/reports/jacoco/test/html/index.html"
+        println "=" * 60
+    }
+}
+
+
+jacocoTestCoverageVerification {
+    group = "verification"
+    description = "Verify minimum code coverage (80%)"
+
+    dependsOn test
+
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.8
+            }
+        }
+
+
+        rule {
+            element = 'CLASS'
+            includes = ['ru.mentee.power.devtools.student.*']
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.8
+            }
+        }
+    }
+}
+
+
+tasks.withType(Checkstyle) {
+    group = "verification"
+    description = "Run Checkstyle"
+}
+
+
+task listVerificationTasks {
+    group = "help"
+    description = "List all verification tasks"
+    
+    doLast {
+        println "=== Verification Tasks ==="
+        tasks.findAll { it.group == "verification" }.each {
+            println "${it.name.padRight(20)} - ${it.description ?: 'No description'}"
+        }
+    }
+}
+task generateCheckstyleReport {
+    group = "verification"
+    description = "Generate Checkstyle report"
+    dependsOn checkstyleMain
+
+    doLast {
+        def reportDir = file("${buildDir}/reports/checkstyle")
+        if (reportDir.exists()) {
+            println "\nGenerated reports in: ${reportDir.absolutePath}"
+            reportDir.listFiles().each { file ->
+                println "  - ${file.name}"
+            }
+        }
+    }
 }
