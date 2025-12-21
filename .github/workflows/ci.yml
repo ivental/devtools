@@ -27,17 +27,8 @@ jobs:
           java-version: '25'
           cache: 'gradle'
 
-      - name: Run Checkstyle
-        run: ./gradlew --no-daemon checkstyleMain checkstyleTest
+      - name: Build with Gradle
+        run: ./gradlew --no-daemon clean checkstyleMain test jacocoTestCoverageVerification build
 
-      - name: Run tests
-        run: ./gradlew --no-daemon test
+          
 
-      - name: Generate JaCoCo report
-        run: ./gradlew --no-daemon jacocoTestReport
-
-      - name: Verify code coverage
-        run: ./gradlew --no-daemon jacocoTestCoverageVerification
-
-      - name: Build project
-        run: ./gradlew --no-daemon build
