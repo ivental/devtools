@@ -10,7 +10,7 @@ public record Student(String name, int age, String city) {
         return age >= 18;
     }
 
-    public static final int MAX_STUDENTS = 100;
+    public static final int MAX_STUDENTS = 100; /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void validateStudentData(String unused_param) {
         int x = 5;
