@@ -1,3 +1,8 @@
+### Devtools Project
+
+
+[![Java CI with Checkstyle and JaCoCo](https://github.com/ivental/devtools/actions/workflows/ci.yml/badge.svg)](https://github.com/ivental/devtools/actions/workflows/ci.yml)
+
 ## Quick Start
 1. Открыть View → Tool Windows → Gradle.
 2. В дереве задач выбрать Tasks → application → run, Tasks → build → build или Tasks → verification → test, запускать двойным кликом.
@@ -132,7 +137,3 @@ status clean вводить в терминале.
 Почему: скобки обязательны даже для однострочных блоков.
 Источник: https://google.github.io/styleguide/javaguide.html#s4.1.1-braces-always-used
 
-### markdown Devtools Project
-
-
-[![Java CI with Checkstyle and JaCoCo](https://github.com/ivental/devtools/actions/workflows/ci.yml/badge.svg)](https://github.com/ivental/devtools/actions/workflows/ci.yml)

@@ -8,7 +8,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class StudentListTest {
+class StudentListTest {
     private StudentList studentList;
 
     @BeforeEach
@@ -26,7 +26,7 @@ public class StudentListTest {
     @Test
     void testAddNullStudent() {
         studentList.addStudent(null);
-        assertThat(studentList.countStudents()).isEqualTo(0);
+        assertThat(studentList.countStudents()).isZero();
     }
 
     @Test
