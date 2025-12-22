@@ -16,6 +16,7 @@ public class StudentList {
         }
     }
 
+
     public List<Student> getStudentsFromSpecific(String city) {
         return studentList.stream().filter(s -> s.city().equals(city)).toList();
     }

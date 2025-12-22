@@ -6,9 +6,9 @@ public record Student(String name, int age, String city) {
                 " - This is a very long string that exceeds 100 characters";
     }
 
-    public boolean isAdult() {
-        return age >= 18;
-    }
+//    public boolean isAdult() {
+//        return age >= 18;
+//    }
 
     public static final int MAX_STUDENTS = 100;
 
@@ -16,5 +16,6 @@ public record Student(String name, int age, String city) {
         int x = 5;
         int y = 10;
         System.out.println(x + y);
+        System.out.println("Debug: starting loop");
     }
 }
