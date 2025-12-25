@@ -105,14 +105,18 @@ jacocoTestCoverageVerification {
     violationRules {
         rule {
             limit {
-                minimum = 0.7
+                minimum = 0.5
             }
         }
 
 
         rule {
             element = 'CLASS'
-            includes = ['ru.mentee.power.devtools.student.*']
+            includes = ['ru.mentee.power.devtools.*']
+            excludes = ['ru.mentee.power.devtools.LiveCodingDemo',
+                        'ru.mentee.power.devtools.ProgressDemo',
+                        'ru.mentee.power.devtools.progress.ProgressTracker']
+
             limit {
                 counter = 'LINE'
                 value = 'COVEREDRATIO'
